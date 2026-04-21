@@ -1,0 +1,85 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+@media (min-width: 900px) {
+  .grid { grid-template-columns: 1fr 1fr; align-items: start; }
+}
+
+/* ── Avatar / Logo Upload Section ─────────────────────────────────────────── */
+.avatarSection {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+/* Square preview box — same visual weight as the sidebar avatar */
+.avatarPreview {
+  width: 64px;
+  height: 64px;
+  border-radius: 10px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border: 2px solid var(--border, rgba(0,0,0,.1));
+}
+
+.avatarImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Letter fallback — matches the sidebar restaurantAvatar colors */
+.avatarFallback {
+  width: 100%;
+  height: 100%;
+  background: #FF6B35;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: inherit;
+}
+
+.avatarFallback span {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.5px;
+}
+
+/* Subtle note shown when a new image is selected but not yet saved */
+.pendingNote {
+  font-size: 0.78rem;
+  color: #22c55e;
+  margin-top: 6px;
+}
+
+/* "Remove photo / logo" ghost button */
+.removeAvatarBtn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 0.8rem;
+  color: var(--text-secondary, #888);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.removeAvatarBtn:hover {
+  color: #ef4444;
+}
+
+/* ── Plan card ─────────────────────────────────────────────────────────────── */
+.planCard {
+  margin-top: 28px;
+  padding: 18px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+  border-radius: var(--radius);
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px;
+}
+.planLabel { font-size: 0.75rem; color: rgba(255,255,255,.6); font-weight: 500; margin-bottom: 2px; }
+.planName  { font-size: 1.125rem; font-weight: 700; color: white; }

@@ -1,0 +1,95 @@
+.header {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  margin-bottom: 24px; gap: 16px; flex-wrap: wrap;
+}
+.header h2 { font-size: 1.75rem; }
+.header p  { color: var(--text-secondary); margin-top: 4px; font-size: 0.9rem; }
+
+.filters { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.loading {
+  display: flex; align-items: center; justify-content: center; height: 200px;
+}
+
+.ordersList { display: flex; flex-direction: column; gap: 12px; }
+
+.orderCard {
+  overflow: hidden;
+  transition: box-shadow .2s;
+}
+.orderCard:hover { box-shadow: var(--shadow-md); }
+
+.orderTop {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 20px; cursor: pointer; gap: 12px;
+  user-select: none;
+}
+
+.orderMeta { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+
+.orderNum {
+  font-family: monospace; font-size: 0.8rem;
+  font-weight: 700; color: var(--text);
+  background: var(--sand); padding: 3px 8px; border-radius: 6px;
+}
+
+.table {
+  font-weight: 600; font-size: 0.9rem; color: var(--text);
+}
+
+.customer {
+  font-size: 0.85rem; color: var(--text-secondary);
+}
+
+.orderRight {
+  display: flex; align-items: center; gap: 12px;
+  flex-shrink: 0; color: var(--text-secondary);
+}
+
+.total { font-weight: 700; color: var(--text); font-size: 0.9375rem; }
+.time  { font-size: 0.8rem; }
+
+/* Expanded body */
+.orderBody {
+  border-top: 1px solid var(--border);
+  padding: 16px 20px;
+  animation: fadeIn 0.2s ease;
+}
+
+.items { display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px; }
+
+.item {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 0.9rem;
+}
+
+.qty {
+  font-weight: 700; color: var(--brand);
+  min-width: 28px; font-size: 0.85rem;
+}
+
+.itemName { flex: 1; font-weight: 500; }
+
+.notes {
+  font-size: 0.8rem; color: var(--text-secondary);
+  font-style: italic;
+}
+
+.itemPrice { font-weight: 600; color: var(--text); }
+
+.note {
+  background: var(--brand-light); border-radius: var(--radius);
+  padding: 10px 14px; font-size: 0.875rem;
+  margin-bottom: 14px; color: var(--text);
+}
+
+.orderFooter {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; flex-wrap: wrap;
+  padding-top: 12px; border-top: 1px solid var(--border);
+}
+
+.totals { display: flex; flex-direction: column; gap: 3px; font-size: 0.85rem; color: var(--text-secondary); }
+.totalBig { font-size: 1rem; font-weight: 700; color: var(--text); }
+
+.actions { display: flex; gap: 8px; flex-wrap: wrap; }

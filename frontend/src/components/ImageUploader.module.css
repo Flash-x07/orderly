@@ -1,0 +1,234 @@
+/* ImageUploader.module.css */
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.circleRoot {
+  align-items: center;
+}
+
+.label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+/* ── Drop Zone ──────────────────────────────── */
+.zone {
+  position: relative;
+  width: 100%;
+  min-height: 140px;
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  background: var(--warm-white);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, transform 0.15s;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.zone:hover,
+.zone:focus-visible {
+  border-color: var(--brand);
+  background: var(--brand-light);
+  outline: none;
+}
+
+.zone:focus-visible {
+  box-shadow: 0 0 0 3px rgba(255,107,53,.25);
+}
+
+.dragging {
+  border-color: var(--brand) !important;
+  background: var(--brand-light) !important;
+  transform: scale(1.01);
+}
+
+.zoneCircle {
+  width: 100px;
+  height: 100px;
+  min-height: unset;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.hasImage {
+  border-style: solid;
+  border-color: var(--border);
+}
+
+/* ── Image preview inside zone ──────────────── */
+.img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  display: block;
+}
+
+.imgCircle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* ── Hover overlay on existing image ─────────── */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.42);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.2s;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.overlayCircle {
+  border-radius: 50%;
+}
+
+.zone:hover .overlay {
+  opacity: 1;
+}
+
+/* ── Empty placeholder ───────────────────────── */
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 24px;
+  text-align: center;
+  pointer-events: none;
+}
+
+.uploadIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--sand);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand);
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.zone:hover .uploadIcon {
+  background: rgba(255,107,53,.15);
+}
+
+.hint {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0;
+}
+
+.sub {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* ── Hidden file input ───────────────────────── */
+.hidden {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+}
+
+/* ── Error ───────────────────────────────────── */
+.error {
+  font-size: 0.8125rem;
+  color: var(--danger);
+  font-weight: 500;
+  margin: 0;
+}
+
+/* ── Confirm bar ──────────────────────────────── */
+.confirmBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: var(--sand);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  gap: 10px;
+}
+
+.confirmText {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.confirmActions {
+  display: flex;
+  gap: 6px;
+}
+
+.iconBtn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+}
+
+.iconBtn:active { transform: scale(0.92); }
+
+.cancelBtn {
+  background: var(--border);
+  color: var(--text-secondary);
+}
+
+.cancelBtn:hover { background: #d0c4bc; }
+
+.confirmBtn {
+  background: var(--success);
+  color: white;
+}
+
+.confirmBtn:hover { background: #16a34a; }
+
+/* ── Remove button ───────────────────────────── */
+.removeBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.75rem;
+  color: var(--danger);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  opacity: 0.75;
+  transition: opacity 0.15s;
+  align-self: flex-start;
+}
+
+.removeBtn:hover { opacity: 1; }

@@ -1,0 +1,96 @@
+.header {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  margin-bottom: 24px; gap: 16px; flex-wrap: wrap;
+}
+.header h2 { font-size: 1.75rem; }
+.header p  { color: var(--text-secondary); margin-top: 4px; font-size: 0.9rem; }
+
+.generatePanel {
+  padding: 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+.generateInfo {
+  display: flex; align-items: flex-start; gap: 16px;
+  flex: 1; min-width: 220px;
+}
+.generateInfo h3 { font-size: 1rem; margin-bottom: 4px; }
+.generateInfo p  { font-size: 0.875rem; color: var(--text-secondary); }
+
+.generateControls {
+  display: flex; align-items: flex-end; gap: 12px; flex-wrap: wrap;
+}
+
+/* Table cards */
+.tableCard {
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform .2s, box-shadow .2s;
+  padding: 0;
+}
+.tableCard:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+
+.qrWrap {
+  padding: 16px;
+  background: white;
+  display: flex; align-items: center; justify-content: center;
+}
+.qrWrap img { width: 100%; max-width: 140px; height: auto; }
+
+.tableInfo {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 16px;
+  border-top: 1px solid var(--border);
+  background: var(--cream);
+}
+
+.tableNum {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--text);
+}
+
+/* Preview modal */
+.overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.55);
+  z-index: 200;
+  display: flex; align-items: center; justify-content: center;
+  padding: 16px;
+  animation: fadeIn .2s ease;
+}
+
+.previewModal {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  width: 100%; max-width: 340px;
+  text-align: center;
+  animation: fadeUp .25s var(--ease-out);
+  box-shadow: var(--shadow-xl);
+}
+
+.previewHeader {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 20px;
+}
+.previewHeader h3 { font-size: 1.125rem; }
+
+.previewQR {
+  background: var(--cream);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-bottom: 16px;
+}
+.previewQR img { width: 100%; max-width: 220px; margin: 0 auto; }
+
+.previewNote {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+  line-height: 1.5;
+}

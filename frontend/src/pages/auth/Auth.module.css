@@ -1,0 +1,188 @@
+.page {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ── Left decorative panel ── */
+.art {
+  display: none;
+  background: var(--accent);
+  color: white;
+  padding: 48px;
+  position: relative;
+  overflow: hidden;
+}
+@media (min-width: 900px) {
+  .art { display: flex; flex: 1; align-items: center; }
+}
+
+.art::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 400px; height: 400px;
+  background: var(--brand);
+  border-radius: 50%;
+  opacity: 0.08;
+}
+.art::after {
+  content: '';
+  position: absolute;
+  bottom: -100px; left: -60px;
+  width: 500px; height: 500px;
+  background: var(--brand);
+  border-radius: 50%;
+  opacity: 0.06;
+}
+
+.artInner { position: relative; z-index: 1; max-width: 400px; }
+
+.brandMark {
+  width: 56px; height: 56px;
+  background: var(--brand);
+  border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 32px;
+  color: white;
+}
+
+.artInner h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 3rem;
+  color: white;
+  margin-bottom: 16px;
+}
+
+.artInner p {
+  color: rgba(255,255,255,.65);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+.features { display: flex; flex-direction: column; gap: 12px; }
+
+.featureItem {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 0.9375rem;
+  color: rgba(255,255,255,.85);
+}
+
+.check {
+  width: 22px; height: 22px;
+  background: rgba(255,107,53,.25);
+  color: var(--brand);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ── Right form panel ── */
+.formSide {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 24px;
+  background: var(--warm-white);
+}
+
+.formCard {
+  width: 100%;
+  max-width: 420px;
+  animation: fadeUp 0.4s var(--ease-out) both;
+}
+
+.formHeader { margin-bottom: 36px; }
+.formHeader h2 { font-size: 2rem; color: var(--text); margin-bottom: 6px; }
+.formHeader p  { color: var(--text-secondary); }
+
+.form { display: flex; flex-direction: column; gap: 20px; }
+
+/* Input with icon */
+.inputWrap { position: relative; }
+
+.inputIcon {
+  position: absolute;
+  left: 14px; top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+  pointer-events: none;
+}
+
+.inputPadded { padding-left: 42px !important; }
+.inputPaddedRight { padding-right: 42px !important; }
+
+.eyeBtn {
+  position: absolute;
+  right: 12px; top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+  display: flex;
+  padding: 4px;
+  border-radius: 4px;
+  transition: color 0.15s;
+}
+.eyeBtn:hover { color: var(--text); }
+
+.switchLink {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+.switchLink a {
+  color: var(--brand);
+  font-weight: 600;
+  transition: opacity 0.15s;
+}
+.switchLink a:hover { opacity: 0.8; }
+
+
+/* ── Logo containers ── */
+.brandMark {
+  margin-bottom: 28px;
+}
+
+.mobileLogoWrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 32px;
+}
+@media (min-width: 900px) {
+  .mobileLogoWrap { display: none; }
+}
+
+.mobileLogoText {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.6rem;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+/* ── Success state ── */
+.sentState {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.sentState h2 { font-size: 1.75rem; margin-bottom: 4px; }
+.sentState p  { color: var(--text-secondary); line-height: 1.6; font-size: 0.9375rem; }
+
+.sentIcon {
+  width: 80px; height: 80px;
+  background: #F0FDF4;
+  color: #22C55E;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 8px;
+}
+
+.spamNote {
+  font-size: 0.825rem !important;
+  color: var(--muted) !important;
+  font-style: italic;
+}
