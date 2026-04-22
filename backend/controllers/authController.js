@@ -65,12 +65,17 @@ const register = async (req, res) => {
       return res.status(400).json({ error: 'Email already registered.' });
     }
 
+    const code    = generate6DigitCode();
+    const expires = new Date(Date.now() + 10 * 60 * 1000);
+
     const user = await User.create({
       name,
       email,
       password,
       role: 'owner',
-      isVerified: true,
+      isVerified: false,
+      emailVerificationCodeHash: hashCode(code),
+      emailVerificationExpires: expires,
     });
 
     const restaurant = await Restaurant.create({
@@ -82,12 +87,12 @@ const register = async (req, res) => {
     user.restaurant = restaurant._id;
     await user.save({ validateBeforeSave: false });
 
-    const token = generateToken(user._id);
+    // Send verification email (non-blocking — don't fail registration if mail fails)
+    try { await sendVerificationEmail(email, code, name); } catch (_) {}
 
     res.status(201).json({
-      message: 'Registration successful! Welcome to Orderly.',
-      needsVerification: false,
-      token,
+      message: 'Registration successful! Please verify your email.',
+      needsVerification: true,
       email,
       user: {
         ...buildUserPayload(user),
