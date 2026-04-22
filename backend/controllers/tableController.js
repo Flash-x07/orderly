@@ -64,7 +64,7 @@ const generateTables = async (req, res) => {
   try {
     const { restaurantId } = req.params;
     const { count = 10 }   = req.body;
-    const frontendUrl      = process.env.FRONTEND_URL || 'http://localhost:5173';
+    const frontendUrl      = (process.env.FRONTEND_URL || 'http://localhost:5173').split(',')[0].trim();
 
     // ── Ownership check ──────────────────────────────────────────────────────
     if (!_ownsRestaurant(req.user, restaurantId)) {
